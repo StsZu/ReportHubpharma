@@ -8,146 +8,8 @@ import { Layout, Database, ShieldCheck, Github, BarChart3, Users, FileText, Bell
 
 type View = 'reports' | 'dashboard' | 'analytics' | 'team';
 
-const DEFAULT_REPORTS: Report[] = [
-  {
-    id: '1',
-    title: 'Стратегічна стійкість: Фармацевтичні ланцюги постачання 2026',
-    description: 'Аналіз впливу геополітичних конфліктів, логістичних криз та нових стандартів GMP на глобальний ринок медикаментів.',
-    createdAt: new Date().toISOString(),
-    html: `<!DOCTYPE html>
-<html lang="uk" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Стратегічна стійкість: Фармацевтичні ланцюги постачання 2026</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#0B132B',
-                        secondary: '#F4F4F9',
-                        surface: '#FFFFFF',
-                        accent1: '#00E5FF',
-                        accent2: '#FF5722',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0B132B; }
-        ::-webkit-scrollbar-thumb { background: #3A86FF; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #00E5FF; }
-        .glow-text { text-shadow: 0 0 10px rgba(0, 229, 255, 0.5); }
-    </style>
-</head>
-<body class="font-sans text-gray-800 bg-secondary antialiased">
-    <nav class="fixed w-full z-50 bg-primary/90 backdrop-blur-md border-b border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex-shrink-0 flex items-center gap-2">
-                    <svg class="w-8 h-8 text-accent1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
-                    </svg>
-                    <span class="text-white font-bold text-xl tracking-tight">PharmaChain<span class="text-accent1">'26</span></span>
-                </div>
-            </div>
-        </div>
-    </nav>
-    <section id="hero" class="relative bg-primary pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-screen flex items-center">
-        <div class="absolute inset-0 opacity-20">
-            <div class="absolute top-0 -left-1/4 w-1/2 h-1/2 bg-accent1 blur-[120px] rounded-full"></div>
-            <div class="absolute bottom-0 -right-1/4 w-1/2 h-1/2 bg-accent2 blur-[120px] rounded-full"></div>
-            <div class="absolute inset-0" style="background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 40px 40px;"></div>
-        </div>
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span class="inline-block py-1 px-3 rounded-full bg-gray-800 border border-gray-700 text-accent1 text-sm font-semibold mb-6 tracking-wide uppercase">
-                Глобальна аналітика 2026-2030
-            </span>
-            <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight mb-6 leading-tight">
-                Структурна волатильність: <br class="hidden md:block">
-                Майбутнє <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent1 to-blue-500">фармацевтичних ланцюгів</span> постачання
-            </h1>
-            <p class="mt-4 max-w-2xl text-lg md:text-xl text-gray-300 mx-auto mb-10">
-                Як геополітичні конфлікти, логістичні кризи та нові стандарти GMP трансформують глобальний ринок медикаментів, API та сировини.
-            </p>
-        </div>
-    </section>
-</body>
-</html>`
-  },
-  {
-    id: '2',
-    title: 'Стратегічна реконфігурація фармацевтичного ланцюга постачань 2026',
-    description: 'Від епохи оптимізації витрат до ери стійкості. Як тарифи та регуляторні зміни формують ринок.',
-    createdAt: new Date().toISOString(),
-    html: `<!DOCTYPE html>
-<html lang="uk" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Стратегічна реконфігурація фармацевтичного ланцюга постачань 2026</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: {
-                        navy: { 800: '#1e293b', 900: '#0f172a', 950: '#020617' },
-                        teal: { 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e' },
-                        coral: { 500: '#f43f5e', 600: '#e11d48' }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .hero-pattern { background-color: #0f172a; background-image: radial-gradient(#1e293b 1px, transparent 1px); background-size: 32px 32px; }
-    </style>
-</head>
-<body class="font-sans text-slate-600 antialiased bg-white">
-    <header class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0 flex items-center">
-                    <span class="font-extrabold text-2xl tracking-tighter text-navy-900">
-                        Pharma<span class="text-teal-600">Strategy</span>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </header>
-    <section class="hero-pattern pt-32 pb-20 lg:pt-48 lg:pb-32 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-r from-navy-900 via-navy-900/95 to-transparent"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="max-w-2xl">
-                <p class="text-teal-500 font-semibold tracking-wider uppercase text-sm mb-4 border-l-2 border-teal-500 pl-3">Аналітичний звіт 2026</p>
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1] mb-6">
-                    Стратегічна реконфігурація глобального фарм-ланцюга.
-                </h1>
-                <p class="text-lg text-slate-300 mb-10 font-light leading-relaxed">
-                    Від епохи оптимізації витрат до ери стійкості. Дізнайтеся, як геополітика, нові тарифи та регуляторні зміни формують ринок ліків.
-                </p>
-            </div>
-        </div>
-    </section>
-</body>
-</html>`
-  }
-];
+const STORAGE_KEY = 'pharma_reports';
+const DEFAULT_REPORTS: Report[] = [];
 
 export default function App() {
   const [reports, setReports] = useState<Report[]>([]);
@@ -158,16 +20,22 @@ export default function App() {
 
   // Load reports from localStorage on mount
   useEffect(() => {
-    const saved = localStorage.getItem('pharma_reports');
+    const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
       try {
-        setReports(JSON.parse(saved));
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed)) {
+          setReports(parsed);
+        } else {
+          throw new Error('Invalid data format');
+        }
       } catch (e) {
-        setReports(DEFAULT_REPORTS);
+        console.error('Failed to load reports:', e);
+        localStorage.removeItem(STORAGE_KEY);
+        setReports([]);
       }
     } else {
-      setReports(DEFAULT_REPORTS);
-      localStorage.setItem('pharma_reports', JSON.stringify(DEFAULT_REPORTS));
+      setReports([]);
     }
   }, []);
 
@@ -177,8 +45,16 @@ export default function App() {
       isInitialMount.current = false;
       return;
     }
-    localStorage.setItem('pharma_reports', JSON.stringify(reports));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(reports));
   }, [reports]);
+
+  const handleReset = () => {
+    if (window.confirm('Ви впевнені, що хочете видалити ВСІ звіти та очистити сховище?')) {
+      localStorage.removeItem(STORAGE_KEY);
+      setReports([]);
+      setCurrentView('reports');
+    }
+  };
 
   const handleUpload = (newReport: Omit<Report, 'id' | 'createdAt'>) => {
     const report: Report = {
@@ -361,6 +237,14 @@ export default function App() {
               <div className="flex items-center gap-2 text-sm text-green-600 font-medium">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                 <span>Всі системи працюють стабільно</span>
+              </div>
+              <div className="pt-2">
+                <button 
+                  onClick={handleReset}
+                  className="text-[10px] uppercase tracking-widest text-gray-400 hover:text-red-500 transition-colors font-bold"
+                >
+                  Очистити дані (Dev)
+                </button>
               </div>
               <div className="flex items-center gap-4 pt-2">
                 <a href="#" className="text-gray-400 hover:text-gray-900 transition-colors"><Database size={20} /></a>
